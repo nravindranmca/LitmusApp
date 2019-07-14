@@ -1,0 +1,91 @@
+﻿@model Litmus.Models.MasterUserModel
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete User Details</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+
+<div>
+    <hr />
+    <table class="table">
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.CompanyCode)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.CompanyCode)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.UnitCode)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.UnitCode)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.Code)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.Code)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.FirstName)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.LastName)
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.IsActive)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.IsActive)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.CreatedDate)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.CreatedDate)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.CreatedBy)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.CreatedBy)
+            </td>
+        </tr>
+
+    </table>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> 
+            @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-default" })
+        </div>
+    }
+</div>

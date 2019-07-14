@@ -1,0 +1,36 @@
+﻿@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/IndexLayout.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    <br/>
+    <table cellspacing="10">
+        <tr>
+            <td colspan="2"><b>Login:</b></td>
+        </tr>
+        <tr>
+            <td height="40">
+                Enter User Code:  
+            </td>
+            <td>
+                @Html.TextBox("txtCode", null, new { @class = "form-control" })
+            </td>
+        </tr>
+        <tr>
+            <td height="40">
+                Enter Password:    
+            </td>
+            <td>
+                @Html.Password("txtPassword", null, new { @class = "form-control" })
+            </td>
+
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input type="submit" value="Login" class="btn btn-default" />
+            </td>
+        </tr>
+    </table>
+}

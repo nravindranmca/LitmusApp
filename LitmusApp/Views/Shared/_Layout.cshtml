@@ -1,0 +1,83 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>@ViewBag.Title - Litmus</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <a class="navbar-brand" href="#">Litmus</a>
+                    </div>
+                    <ul class="nav navbar-nav">
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Master<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="~/User/Index">Manage Users</a></li>
+                                <li><a href="~/Unit/Index">Unit Details</a></li>
+                                <li><a href="#">Process</a></li>
+                                <li><a href="#">Vehicle Masters</a></li>
+                                <li><a href="#">To-Dates</a></li>
+                                <li><a href="#">Stoppage Masters</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Transactions<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Hourly Transactions</a></li>
+                                <li><a href="#">Two Hourly Transactions</a></li>
+                                <li><a href="#">Massecuties</a></li>
+                                <li><a href="#">Veihcle Masters</a></li>
+                                <li><a href="#">Key Samples</a></li>
+                                <li><a href="#">Meltings</a></li>
+                                <li><a href="#">Other Parameters</a></li>
+                                <li><a href="#">Stoppage</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Reports<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Ledger</a></li>
+                                <li><a href="#">Daily Reports</a></li>
+                                <li><a href="#">Report Panel</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+            <div class="navbar-right">
+                @{
+                    if (Session["name"] != null)
+                    {
+                        string msg = String.Format("Welcome: {0}, ", Session["name"].ToString());
+
+                        @Html.Label(msg, null, new { @class = "navbar-brand" })
+
+                        @Html.ActionLink("Log out", "LogOut", null, new { @class = "navbar-brand" });
+                    }
+                }
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        <br /><br /><br />
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - Litmus</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @*@Scripts.Render("~/bundles/bootstrap")*@
+    @RenderSection("scripts", required: false)
+</body>
+</html>
